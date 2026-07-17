@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Royal Wedding Planner - Premium luxury wedding planning, custom packages, elegant venues, photography, catering, and decor coordination.">
+    <title>Royal Wedding Planner - Create Your Dream Wedding</title>
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+    <!-- Background Floral Overlay Decoration -->
+    <div class="floral-overlay"></div>
+
+    <!-- Loading Spinner Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="spinner"></div>
+        <div class="loading-text">Processing Request...</div>
+    </div>
+
+    <!-- ============ HEADER & NAVBAR ============ -->
+    <header>
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <div class="logo-img" aria-hidden="true"></div>
+                <div class="logo-text">Royal Wedding<span>Bespoke Elegance</span></div>
+            </a>
+            
+            <button id="menuToggle" class="menu-toggle" aria-label="Toggle Navigation Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav id="navbar">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="booking.html">Reservations</a></li>
+                    <li><a href="profile.html" id="navProfileLink" style="display: none;">My Profile</a></li>
+                    <li><a href="admin.html" id="navAdminLink" style="display: none;">Admin Hub</a></li>
+                    <li><a href="#" id="navLogoutLink" style="display: none;">Logout</a></li>
+                </ul>
+
+                <!-- Logged-out default login buttons -->
+                <div id="authButtons" class="nav-buttons">
+                    <a href="login.html" class="btn btn-outline nav-btn">Login</a>
+                    <a href="register.html" class="btn btn-primary nav-btn">Register</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ============ HERO SECTION ============ -->
+    <section id="home" class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>Create Your Dream Wedding</h1>
+            <p>Luxury wedding planning with elegance, perfection, and timeless memories. Tailored packages crafted by award-winning decorators and coordinators.</p>
+            <div class="hero-ctas">
+                <a href="#packages" class="btn btn-primary">Explore Packages</a>
+                <a href="#" onclick="openBooking('package', 2, 'Gold Package', 10000.0); return false;" class="btn btn-outline" style="color: #FFFFFF; border-color: #FFFFFF;">Book Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ ABOUT SECTION ============ -->
+    <section id="about">
+        <div class="about-grid">
+            <div class="about-images">
+                <div class="about-img-box about-img-1">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=600" alt="Beautiful wedding ring exchange ceremony details">
+                </div>
+                <div class="about-img-box about-img-2">
+                    <img src="images/couple.jpg" alt="Bespoke watercolor illustration of a bride and groom">
+                </div>
+            </div>
+            
+            <div class="about-content animate-on-scroll">
+                <span class="section-subtitle">Our Heritage</span>
+                <h2 class="section-title" style="text-align: left; padding-bottom: 10px; margin-bottom: 1.5rem;">Crafting Fairytales Since 2012</h2>
+                <p>Welcome to <strong>Royal Wedding Planner</strong>. We specialize in curating luxury, high-end wedding ceremonies. From historic Indian palace bookings to modern beachfront glass pavilion assemblies, we manage everything with pristine details.</p>
+                <p>We pride ourselves on offering full-suite planning, custom catering banquets, bridal makeup coordination, and cinematic candid capturing. We streamline the entire planning timeline so you can enjoy your special day stress-free.</p>
+                
+                <div class="about-features">
+                    <div class="about-feature-card">
+                        <h4>🏰 Palace Venues</h4>
+                        <p>Access to royal heritage structures and estates.</p>
+                    </div>
+                    <div class="about-feature-card">
+                        <h4>🍽️ Gourmet Culinary</h4>
+                        <p>Custom dynamic multi-cuisine catering buffets.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ EXCLUSIVE FEATURES SECTION ============ -->
+    <section id="exclusive-features" class="features-section">
+        <div class="section-header">
+            <span class="section-subtitle">Exquisite Details</span>
+            <h2 class="section-title">Exclusive Wedding Features</h2>
+        </div>
+        
+        <div class="features-grid">
+            <!-- Feature 1: Venue Decoration -->
+            <div class="feature-card animate-on-scroll">
+                <div class="feature-img-wrapper">
+                    <img class="feature-img" src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=600" alt="Venue Decoration">
+                </div>
+                <div class="feature-info">
+                    <h3>Venue Decoration</h3>
+                    <p>Bespoke backdrop layouts, grand drapes, and ambient lighting set to reflect your unique wedding theme.</p>
+                </div>
+            </div>
+
+            <!-- Feature 2: Bridal Makeup -->
+            <div class="feature-card animate-on-scroll">
+                <div class="feature-img-wrapper">
+                    <img class="feature-img" src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=600" alt="Bridal Makeup">
+                </div>
+                <div class="feature-info">
+                    <h3>Bridal Makeup</h3>
+                    <p>Flawless celebrity styling and high-end cosmetics customized to enhance your natural grace on the big day.</p>
+                </div>
+            </div>
+
+            <!-- Feature 3: Catering -->
+            <div class="feature-card animate-on-scroll">
+                <div class="feature-img-wrapper">
+                    <img class="feature-img" src="https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=600" alt="Catering">
+                </div>
+                <div class="feature-info">
+                    <h3>Gourmet Catering</h3>
+                    <p>Curated multi-cuisine menus, dynamic food stations, and signature cocktail pairings crafted by master chefs.</p>
+                </div>
+            </div>
+
+            <!-- Feature 4: Photography -->
+            <div class="feature-card animate-on-scroll">
+                <div class="feature-img-wrapper">
+                    <img class="feature-img" src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?q=80&w=600" alt="Photography">
+                </div>
+                <div class="feature-info">
+                    <h3>Cinematic Photography</h3>
+                    <p>Capturing raw, emotional moments and candid smiles through award-winning visual storytelling lens.</p>
+                </div>
+            </div>
+
+            <!-- Feature 5: Invitations -->
+            <div class="feature-card animate-on-scroll">
+                <div class="feature-img-wrapper">
+                    <img class="feature-img" src="https://images.unsplash.com/photo-1607344645866-009c320b5ab8?q=80&w=600" alt="Invitations">
+                </div>
+                <div class="feature-info">
+                    <h3>Luxury Invitations</h3>
+                    <p>Custom monogrammed wax seals, gold foil calligraphy, and premium paper selections to set the tone.</p>
+                </div>
+            </div>
+
+            <!-- Feature 6: Flower Decoration -->
+            <div class="feature-card animate-on-scroll">
+                <div class="feature-img-wrapper">
+                    <img class="feature-img" src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=600" alt="Flower Decoration">
+                </div>
+                <div class="feature-info">
+                    <h3>Flower Decoration</h3>
+                    <p>Freshly imported roses, orchids, and custom floral arches that wrap your ceremony venue in sweet fragrance.</p>
+                </div>
+            </div>
+
+            <!-- Feature 7: Entertainment -->
+            <div class="feature-card animate-on-scroll">
+                <div class="feature-img-wrapper">
+                    <img class="feature-img" src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=600" alt="Entertainment">
+                </div>
+                <div class="feature-info">
+                    <h3>Live Entertainment</h3>
+                    <p>Live symphony orchestras, energetic dance choreographers, and top-tier DJs keeping the dance floor alive.</p>
+                </div>
+            </div>
+
+            <!-- Feature 8: Wedding Planning -->
+            <div class="feature-card animate-on-scroll">
+                <div class="feature-img-wrapper">
+                    <img class="feature-img" src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=600" alt="Wedding Planning">
+                </div>
+                <div class="feature-info">
+                    <h3>Comprehensive Planning</h3>
+                    <p>A-to-Z execution, vendor alignment, and detailed timeline management for a stress-free celebration.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ SERVICES SECTION ============ -->
+    <section id="services">
+        <div class="section-header">
+            <span class="section-subtitle">Exquisite Offerings</span>
+            <h2 class="section-title">Our Wedding Services</h2>
+        </div>
+        
+        <!-- Services Grid - Loaded dynamically from Spring Boot (with fallbacks) -->
+        <div id="servicesGrid" class="services-grid">
+            <div style="text-align: center; grid-column: 1/-1; padding: 2rem;">
+                <div class="spinner" style="margin: 0 auto 1rem;"></div>
+                <p>Loading luxury services...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ PACKAGES SECTION ============ -->
+    <section id="packages" style="background-color: var(--secondary); max-width: 100%; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 5rem 1.5rem;">
+            <div class="section-header">
+                <span class="section-subtitle">Bespoke Plans</span>
+                <h2 class="section-title">Wedding Packages</h2>
+            </div>
+            
+            <!-- Packages Grid - Loaded dynamically from Spring Boot (with fallbacks) -->
+            <div id="packagesGrid" class="packages-grid">
+                <div style="text-align: center; grid-column: 1/-1; padding: 2rem;">
+                    <div class="spinner" style="margin: 0 auto 1rem;"></div>
+                    <p>Loading premium packages...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ GALLERY SECTION ============ -->
+    <section id="gallery">
+        <div class="section-header">
+            <span class="section-subtitle">Visual Inspiration</span>
+            <h2 class="section-title">The Dream Gallery</h2>
+        </div>
+
+        <!-- Filter tabs -->
+        <div class="gallery-filters">
+            <button class="filter-btn active" data-filter="all">All Photos</button>
+            <button class="filter-btn" data-filter="venue">Venues</button>
+            <button class="filter-btn" data-filter="decor">Decorations</button>
+            <button class="filter-btn" data-filter="catering">Catering</button>
+            <button class="filter-btn" data-filter="moments">Moments</button>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="gallery-grid">
+            <div class="gallery-item" data-category="venue">
+                <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=600" alt="Lakeside glass pavilion banquet setup lighting at night">
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h4>Lakeside Gardens</h4>
+                        <p>Venue Setup</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="decor">
+                <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80&w=600" alt="Extensive pink floral arches on wedding ceremony walkway">
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h4>Rosé Floral Arches</h4>
+                        <p>Decoration Details</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="moments">
+                <img src="images/couple.jpg" alt="Bespoke watercolor illustration of a bride and groom">
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h4>Bespoke Elegance</h4>
+                        <p>Ceremony Moments</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="catering">
+                <img src="https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=600" alt="Fine dining gourmet wedding appetizers catering table design">
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h4>Gourmet Platters</h4>
+                        <p>Luxury Catering</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="venue">
+                <img src="https://images.unsplash.com/photo-1585909693685-7f5859e39b1a?q=80&w=600" alt="Grand heritage palace domes lighting for wedding party in Jaipur">
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h4>Grand Palace Domestead</h4>
+                        <p>Heritage Venue</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="decor">
+                <img src="https://images.unsplash.com/photo-1519225495810-7517c300ea87?q=80&w=600" alt="Luxury wedding dining setup with crystals and gold candles">
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h4>Crystal Dining Setup</h4>
+                        <p>Decor & Styling</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS SECTION ============ -->
+    <section id="testimonials" style="background-color: var(--card-bg); max-width: 100%; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 5rem 1.5rem;">
+            <div class="section-header">
+                <span class="section-subtitle">Client Stories</span>
+                <h2 class="section-title">Couples' Love Letters</h2>
+            </div>
+            
+            <div id="testimonialsGrid" class="testimonials-grid">
+                <!-- Testimonials rendered dynamically from Spring Boot or Mock -->
+                <div style="text-align: center; grid-column: 1/-1; padding: 2rem;">
+                    <div class="spinner" style="margin: 0 auto 1rem;"></div>
+                    <p>Loading couple stories...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CONTACT SECTION ============ -->
+    <section id="contact">
+        <div class="section-header">
+            <span class="section-subtitle">Get In Touch</span>
+            <h2 class="section-title">Contact Our Planners</h2>
+        </div>
+
+        <div class="contact-grid">
+            <!-- Contact Form -->
+            <div class="contact-form-wrapper animate-on-scroll">
+                <h3>Leave a Message</h3>
+                <form id="contactForm" novalidate>
+                    <div class="form-group">
+                        <label for="contactName" class="form-label">Your Name</label>
+                        <input type="text" id="contactName" class="form-control" placeholder="e.g. Srikanth" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactEmail" class="form-label">Email Address</label>
+                        <input type="email" id="contactEmail" class="form-control" placeholder="e.g. srikanth@gmail.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactSubject" class="form-label">Subject</label>
+                        <input type="text" id="contactSubject" class="form-control" placeholder="e.g. Booking Jaipur Palace 2026">
+                    </div>
+                    <div class="form-group">
+                        <label for="contactMessage" class="form-label">Your Message</label>
+                        <textarea id="contactMessage" class="form-control" rows="5" placeholder="Share your details or questions with us..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Inquiry</button>
+                </form>
+            </div>
+
+            <!-- Contact info & map -->
+            <div class="contact-info-wrapper animate-on-scroll" style="animation-delay: 0.2s;">
+                <div class="contact-details">
+                    <h3>Contact Information</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-item-icon">📍</div>
+                        <div class="contact-item-text">
+                            <h4>Headquarters</h4>
+                            <p>Rose Gold Towers, Level 5, Banjara Hills, Hyderabad, India</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-item-icon">📞</div>
+                        <div class="contact-item-text">
+                            <h4>Direct Line</h4>
+                            <p>+91 98765 43210 / +91 40 2345 6789</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-item-icon">✉️</div>
+                        <div class="contact-item-text">
+                            <h4>Inquiries</h4>
+                            <p>concierge@royalwedding.com / uma@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Google Map Placeholder -->
+                <div class="map-placeholder">
+                    <!-- Google Maps Iframe pointing to Banjara Hills, Hyderabad -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.126588267073!2d78.4357949!3d17.4056265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb972e2d09dfb7%3A0x6b2e04e9c71a3962!2sBanjara%20Hills%2C%20Hyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+
+                <!-- Social media icons -->
+                <div class="social-links">
+                    <a href="#" class="social-btn" aria-label="Facebook">FB</a>
+                    <a href="#" class="social-btn" aria-label="Instagram">IG</a>
+                    <a href="#" class="social-btn" aria-label="Pinterest">PIN</a>
+                    <a href="#" class="social-btn" aria-label="Twitter">TW</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <a href="#home" class="logo">
+                    <div class="logo-img" aria-hidden="true"></div>
+                    <div class="logo-text">Royal Wedding<span>Bespoke Elegance</span></div>
+                </a>
+                <p>Curating award-winning luxury wedding celebrations with precision, premium services, and detailed timeline management. Your fairytale starts here.</p>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Quick Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">Our Story</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#packages">Packages</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Wedding Services</h4>
+                <ul class="footer-links">
+                    <li><a href="#services">Palace Booking</a></li>
+                    <li><a href="#services">Custom Catering</a></li>
+                    <li><a href="#services">Flora Decorators</a></li>
+                    <li><a href="#services">Cinematic Shoots</a></li>
+                    <li><a href="#services">Makeup Artists</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Legal & Support</h4>
+                <ul class="footer-links">
+                    <li><a href="#" onclick="showNotification('Support Desk: concierge@royalwedding.com', 'info'); return false;">Help Center</a></li>
+                    <li><a href="#" onclick="showNotification('Terms of Service are active.', 'info'); return false;">Terms of Service</a></li>
+                    <li><a href="#" onclick="showNotification('Privacy Policy is active.', 'info'); return false;">Privacy Policy</a></li>
+                    <li><a href="#" onclick="showNotification('Security systems enabled.', 'info'); return false;">Security</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Royal Wedding Planner. All Rights Reserved. Designed with Love for a Luxury College Project Showcase.</p>
+        </div>
+    </footer>
+
+    <!-- ============ DIALOG MODALS ============ -->
+    
+    <!-- 1. Booking Modal Form -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('bookingModal')">&times;</span>
+            <div class="modal-header">
+                <h3 id="bookingItemTitle">Book Wedding Planner</h3>
+                <p>Fill in details to lock your dates and confirm reservations.</p>
+            </div>
+            
+            <form id="bookingForm" novalidate>
+                <input type="hidden" id="bookingType">
+                <input type="hidden" id="bookingItemId" name="serviceId">
+                <input type="hidden" id="packageNameInput">
+
+                <!-- Booking Date -->
+                <div class="form-group">
+                    <label for="bookingDate" class="form-label">Wedding / Event Date *</label>
+                    <input type="date" id="bookingDate" class="form-control" style="color: var(--text-color);" required>
+                </div>
+
+                <!-- Guests Count -->
+                <div class="form-group">
+                    <label for="bookingGuests" class="form-label">Number of Guests</label>
+                    <input type="number" id="bookingGuests" class="form-control" value="100" min="10">
+                </div>
+
+                <!-- Budget -->
+                <div class="form-group">
+                    <label for="bookingBudget" class="form-label">Allocated Budget ($)</label>
+                    <input type="number" id="bookingBudget" class="form-control" placeholder="e.g. 10000" step="100">
+                </div>
+
+                <!-- Wedding Type Dropdown -->
+                <div class="form-group">
+                    <label for="bookingWeddingType" class="form-label">Wedding Style</label>
+                    <select id="bookingWeddingType" class="form-control">
+                        <option value="Traditional">Traditional Ceremony</option>
+                        <option value="Destination">Destination Wedding</option>
+                        <option value="Royal">Royal Palace Wedding</option>
+                        <option value="Beach">Beachfront Pavilion</option>
+                        <option value="Minimal">Minimal Elegant Banquet</option>
+                    </select>
+                </div>
+
+                <!-- Special Requirements -->
+                <div class="form-group">
+                    <label for="specialRequirements" class="form-label">Special Demands / Notes</label>
+                    <textarea id="specialRequirements" class="form-control" rows="3" placeholder="e.g. Orchid floral arrangement, vegan dining options..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Confirm Reservation</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 2. Profile Details Modal Form -->
+    <div id="profileModal" class="modal">
+        <div class="modal-content" style="width: 650px;">
+            <span class="modal-close" onclick="closeModal('profileModal')">&times;</span>
+            <div class="modal-header">
+                <h3>My Wedding Planner Profile</h3>
+                <p>Review or adjust details for your personalized wedding dashboard.</p>
+            </div>
+            
+            <form id="profileForm" novalidate>
+                <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <!-- Full Name -->
+                    <div class="form-group">
+                        <label for="profFullName" class="form-label">Full Name *</label>
+                        <input type="text" id="profFullName" class="form-control" required>
+                    </div>
+
+                    <!-- Email (readonly) -->
+                    <div class="form-group">
+                        <label for="profEmail" class="form-label">Email Address</label>
+                        <input type="email" id="profEmail" class="form-control" readonly style="background-color: var(--secondary); opacity: 0.8;">
+                    </div>
+
+                    <!-- Phone Number -->
+                    <div class="form-group">
+                        <label for="profPhone" class="form-label">Phone Number</label>
+                        <input type="tel" id="profPhone" class="form-control">
+                    </div>
+
+                    <!-- Password (optional change) -->
+                    <div class="form-group">
+                        <label for="profPassword" class="form-label">Change Password</label>
+                        <input type="password" id="profPassword" class="form-control" placeholder="Leave blank to keep same">
+                    </div>
+
+                    <!-- Bride Name -->
+                    <div class="form-group">
+                        <label for="profBrideName" class="form-label">Bride's Name</label>
+                        <input type="text" id="profBrideName" class="form-control">
+                    </div>
+
+                    <!-- Groom Name -->
+                    <div class="form-group">
+                        <label for="profGroomName" class="form-label">Groom's Name</label>
+                        <input type="text" id="profGroomName" class="form-control">
+                    </div>
+
+                    <!-- Wedding Date -->
+                    <div class="form-group">
+                        <label for="profWeddingDate" class="form-label">Wedding Date</label>
+                        <input type="date" id="profWeddingDate" class="form-control" style="color: var(--text-color);">
+                    </div>
+
+                    <!-- Wedding Type -->
+                    <div class="form-group">
+                        <label for="profWeddingType" class="form-label">Wedding Style</label>
+                        <select id="profWeddingType" class="form-control">
+                            <option value="Traditional">Traditional Ceremony</option>
+                            <option value="Destination">Destination Wedding</option>
+                            <option value="Royal">Royal Palace Wedding</option>
+                            <option value="Beach">Beachfront Pavilion</option>
+                            <option value="Minimal">Minimal Elegant Banquet</option>
+                        </select>
+                    </div>
+
+                    <!-- Target Budget -->
+                    <div class="form-group">
+                        <label for="profBudget" class="form-label">Target Budget ($)</label>
+                        <input type="number" id="profBudget" class="form-control">
+                    </div>
+
+                    <!-- Address / City -->
+                    <div class="form-group">
+                        <label for="profAddress" class="form-label">City / Address</label>
+                        <input type="text" id="profAddress" class="form-control">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript Controller -->
+    <script src="js/home.js"></script>
+</body>
+</html>

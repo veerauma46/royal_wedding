@@ -1,0 +1,59 @@
+/* packages.css - Packages Page specific styles */
+
+.comparison-section {
+    padding: 5rem 1.5rem;
+    background: var(--card-bg);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    margin-top: 4rem;
+}
+
+.comparison-table-wrapper {
+    overflow-x: auto;
+    max-width: 1000px;
+    margin: 3rem auto 0;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--border-color);
+    background: #FFFFFF;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.comparison-table th, 
+.comparison-table td {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid rgba(244, 214, 225, 0.4);
+}
+
+.comparison-table th {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--heading-color);
+    background-color: var(--secondary);
+    font-weight: 600;
+}
+
+.comparison-table tr:last-child td {
+    border-bottom: none;
+}
+
+.comparison-table td:first-child {
+    font-weight: 600;
+    color: var(--heading-color);
+}
+
+.feature-check {
+    color: var(--heading-color);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.feature-cross {
+    color: #CBD5E0;
+}

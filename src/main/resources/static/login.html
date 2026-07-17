@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Access your wedding planner account to manage schedules, venues, and suppliers.">
+    <title>Login - Royal Wedding Planner</title>
+    <!-- Fonts and Icons -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <!-- Background Floral Overlay Decoration -->
+    <div class="floral-overlay"></div>
+
+    <!-- Loading Spinner Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="spinner"></div>
+        <div class="loading-text">Verifying Credentials...</div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="login-container">
+        <!-- Left Side: Visual Illustration Panel -->
+        <div class="login-visual">
+            <div class="login-visual-content">
+                <h2>Royal Wedding Planner</h2>
+                <p>Bringing elegance, perfection, and luxury to your special day. Sign in to continue crafting your fairytale.</p>
+            </div>
+        </div>
+
+        <!-- Right Side: Login Form -->
+        <div class="login-form-side">
+            <div class="login-header">
+                <div class="login-logo" aria-hidden="true"></div>
+                <h1>Welcome Back</h1>
+                <p>Sign in to plan your dream wedding.</p>
+            </div>
+
+            <form id="loginForm" novalidate>
+                <!-- Email field -->
+                <div class="form-group">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" id="email" class="form-control" placeholder="enter your email (e.g. uma@gmail.com)" required>
+                </div>
+
+                <!-- Password field -->
+                <div class="form-group">
+                    <label for="password" class="form-label">Password</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="password" class="form-control" placeholder="••••••" required>
+                        <span id="passwordToggle" class="password-toggle-icon" title="Show password" role="button" aria-label="Toggle password visibility">&#128064;</span>
+                    </div>
+                </div>
+
+                <!-- Remember Me & Forgot Password -->
+                <div class="form-footer">
+                    <label class="remember-me">
+                        <input type="checkbox" id="rememberMe">
+                        <span>Remember Me</span>
+                    </label>
+                    <a href="#" class="forgot-link" onclick="showNotification('Forgot Password feature is currently under maintenance. Please contact admin@royalwedding.com.', 'info'); return false;">Forgot Password?</a>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary btn-login">Login</button>
+            </form>
+
+            <!-- Register Navigation -->
+            <div class="register-link-text">
+                <p>New to Royal Weddings? <a href="register.html">Register Account</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Controller -->
+    <script src="js/login.js"></script>
+</body>
+</html>

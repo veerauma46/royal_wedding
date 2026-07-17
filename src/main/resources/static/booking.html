@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View your reservation history, cancel bookings, and calculate wedding costs with GST taxes.">
+    <title>Reservations & Budget - Royal Wedding Planner</title>
+    <!-- CSS Stylesheets -->
+    <link class="styles" rel="stylesheet" href="css/global.css">
+    <link class="styles" rel="stylesheet" href="css/home.css">
+    <link class="styles" rel="stylesheet" href="css/booking.css">
+</head>
+<body>
+    <!-- Background Floral Overlay -->
+    <div class="floral-overlay"></div>
+
+    <!-- Loading Spinner Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="spinner"></div>
+        <div class="loading-text">Processing Request...</div>
+    </div>
+
+    <!-- ============ HEADER & NAVBAR ============ -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-img" aria-hidden="true"></div>
+                <div class="logo-text">Royal Wedding<span>Bespoke Elegance</span></div>
+            </a>
+            
+            <button id="menuToggle" class="menu-toggle" aria-label="Toggle Navigation Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav id="navbar">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="booking.html" class="active">Reservations</a></li>
+                    <li><a href="profile.html" id="navProfileLink" style="display: none;">My Profile</a></li>
+                    <li><a href="#" id="navLogoutLink" style="display: none;">Logout</a></li>
+                </ul>
+                <div id="authButtons" class="nav-buttons">
+                    <a href="login.html" class="btn btn-outline nav-btn">Login</a>
+                    <a href="register.html" class="btn btn-primary nav-btn">Register</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ============ MAIN BOOKING & CALCULATOR WORKSPACE ============ -->
+    <section style="margin-top: 5rem;">
+        <div class="section-header">
+            <span class="section-subtitle">Client Workspace</span>
+            <h2 class="section-title">Reservations & Budget</h2>
+        </div>
+
+        <div class="booking-panel-grid">
+            <!-- Left Side: Booking History -->
+            <div class="animate-on-scroll">
+                <h3 style="font-size: 1.6rem; margin-bottom: 1.5rem; color: var(--heading-color);">My Reservation History</h3>
+                <div id="bookingListContainer" class="table-responsive">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Booking ID</th>
+                                <th>Booking Date</th>
+                                <th>Details</th>
+                                <th>Total Cost</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="userBookingsTableBody">
+                            <!-- Injected dynamically by js/booking.js -->
+                            <tr>
+                                <td colspan="6" style="text-align: center; padding: 2rem;">Please log in to view booking history.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Right Side: Budget Calculator -->
+            <div class="budget-calculator-card animate-on-scroll" style="animation-delay: 0.2s;">
+                <h3>Wedding Budget Calculator</h3>
+                <form id="budgetCalculatorForm">
+                    <!-- Guest count slider -->
+                    <div class="slider-group">
+                        <div class="slider-label-wrapper">
+                            <span>Number of Guests</span>
+                            <span id="guestsCountVal">150</span>
+                        </div>
+                        <input type="range" id="calcGuests" class="slider-control" min="20" max="1000" value="150">
+                    </div>
+
+                    <!-- Food cost per guest -->
+                    <div class="form-group">
+                        <label for="calcFood" class="form-label">Food Cost per Guest ($)</label>
+                        <input type="number" id="calcFood" class="form-control" value="45" min="0">
+                    </div>
+
+                    <!-- Decoration cost -->
+                    <div class="form-group">
+                        <label for="calcDecor" class="form-label">Decoration Cost ($)</label>
+                        <input type="number" id="calcDecor" class="form-control" value="2500" min="0">
+                    </div>
+
+                    <!-- Photography cost -->
+                    <div class="form-group">
+                        <label for="calcPhoto" class="form-label">Photography Cost ($)</label>
+                        <input type="number" id="calcPhoto" class="form-control" value="1800" min="0">
+                    </div>
+
+                    <!-- Venue rental cost -->
+                    <div class="form-group">
+                        <label for="calcVenue" class="form-label">Venue Rental Cost ($)</label>
+                        <input type="number" id="calcVenue" class="form-control" value="5000" min="0">
+                    </div>
+
+                    <!-- Music & Entertainment cost -->
+                    <div class="form-group">
+                        <label for="calcMusic" class="form-label">Music & Entertainment Cost ($)</label>
+                        <input type="number" id="calcMusic" class="form-control" value="1200" min="0">
+                    </div>
+
+                    <!-- Output totals lists -->
+                    <div class="budget-totals-list">
+                        <div class="budget-total-row">
+                            <span>Subtotal:</span>
+                            <span id="outSubtotal">$0.00</span>
+                        </div>
+                        <div class="budget-total-row">
+                            <span>GST (18%):</span>
+                            <span id="outGst">$0.00</span>
+                        </div>
+                        <div class="budget-total-row grand">
+                            <span>Grand Total:</span>
+                            <span id="outGrandTotal">$0.00</span>
+                        </div>
+                    </div>
+
+                    <button type="button" id="saveBudgetBtn" class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;">Save Budget Details</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <a href="index.html" class="logo">
+                    <div class="logo-img" aria-hidden="true"></div>
+                    <div class="logo-text">Royal Wedding<span>Bespoke Elegance</span></div>
+                </a>
+                <p>Curating award-winning luxury wedding celebrations with precision, premium services, and detailed timeline management.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Wedding Services</h4>
+                <ul class="footer-links">
+                    <li><a href="services.html">Palace Booking</a></li>
+                    <li><a href="services.html">Custom Catering</a></li>
+                    <li><a href="services.html">Flora Decorators</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal & Support</h4>
+                <ul class="footer-links">
+                    <li><a href="#" onclick="showNotification('Support Desk: concierge@royalwedding.com', 'info'); return false;">Help Center</a></li>
+                    <li><a href="#" onclick="showNotification('Terms of Service are active.', 'info'); return false;">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Royal Wedding Planner. All Rights Reserved. Designed with Love for a Luxury College Project Showcase.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Controllers -->
+    <script src="js/booking.js"></script>
+</body>
+</html>

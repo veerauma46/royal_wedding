@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse and book our luxury wedding services including caterers, makeup artists, photographers, and decorators.">
+    <title>Wedding Services - Royal Wedding Planner</title>
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/services.css">
+</head>
+<body>
+    <!-- Background Floral Overlay -->
+    <div class="floral-overlay"></div>
+
+    <!-- Loading Spinner Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="spinner"></div>
+        <div class="loading-text">Loading Wedding Services...</div>
+    </div>
+
+    <!-- ============ HEADER & NAVBAR ============ -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-img" aria-hidden="true"></div>
+                <div class="logo-text">Royal Wedding<span>Bespoke Elegance</span></div>
+            </a>
+            
+            <button id="menuToggle" class="menu-toggle" aria-label="Toggle Navigation Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav id="navbar">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="booking.html">Reservations</a></li>
+                    <li><a href="profile.html" id="navProfileLink" style="display: none;">My Profile</a></li>
+                    <li><a href="#" id="navLogoutLink" style="display: none;">Logout</a></li>
+                </ul>
+                <div id="authButtons" class="nav-buttons">
+                    <a href="login.html" class="btn btn-outline nav-btn">Login</a>
+                    <a href="register.html" class="btn btn-primary nav-btn">Register</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ============ SERVICES DISPLAY SECTION ============ -->
+    <section id="services" style="margin-top: 5rem;">
+        <div class="section-header">
+            <span class="section-subtitle">Premium Offerings</span>
+            <h2 class="section-title">Explore Wedding Services</h2>
+        </div>
+
+        <!-- Search and Category Filters -->
+        <div class="search-filter-container">
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="searchInput" class="form-control" placeholder="Search by service name...">
+            </div>
+            <div class="category-select">
+                <select id="categorySelect" class="form-control">
+                    <option value="ALL">All Categories</option>
+                    <option value="VENUE">Palace Venues</option>
+                    <option value="PHOTOGRAPHY">Photographers</option>
+                    <option value="DECORATION">Decorators</option>
+                    <option value="CATERING">Caterers</option>
+                    <option value="MAKEUP_ARTIST">Makeup Artists</option>
+                    <option value="MUSIC_ENTERTAINMENT">Music & DJs</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="servicesGrid" class="services-grid">
+            <!-- Rendered dynamically by js/services.js -->
+            <div style="text-align: center; grid-column: 1/-1; padding: 2rem;">
+                <div class="spinner" style="margin: 0 auto 1rem;"></div>
+                <p>Loading catalog services...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <a href="index.html" class="logo">
+                    <div class="logo-img" aria-hidden="true"></div>
+                    <div class="logo-text">Royal Wedding<span>Bespoke Elegance</span></div>
+                </a>
+                <p>Curating award-winning luxury wedding celebrations with precision, premium services, and detailed timeline management.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Wedding Services</h4>
+                <ul class="footer-links">
+                    <li><a href="services.html">Palace Booking</a></li>
+                    <li><a href="services.html">Custom Catering</a></li>
+                    <li><a href="services.html">Flora Decorators</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal & Support</h4>
+                <ul class="footer-links">
+                    <li><a href="#" onclick="showNotification('Support Desk: concierge@royalwedding.com', 'info'); return false;">Help Center</a></li>
+                    <li><a href="#" onclick="showNotification('Terms of Service are active.', 'info'); return false;">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Royal Wedding Planner. All Rights Reserved. Designed with Love for a Luxury College Project Showcase.</p>
+        </div>
+    </footer>
+
+    <!-- Booking Modal Form -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('bookingModal')">&times;</span>
+            <div class="modal-header">
+                <h3 id="bookingItemTitle">Book Service</h3>
+                <p>Fill in details to lock your dates and confirm reservations.</p>
+            </div>
+            
+            <form id="bookingForm" novalidate>
+                <input type="hidden" id="bookingType">
+                <input type="hidden" id="bookingItemId" name="serviceId">
+                <input type="hidden" id="packageNameInput">
+
+                <div class="form-group">
+                    <label for="bookingDate" class="form-label">Event Date *</label>
+                    <input type="date" id="bookingDate" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="bookingGuests" class="form-label">Number of Guests</label>
+                    <input type="number" id="bookingGuests" class="form-control" value="100" min="10">
+                </div>
+                <div class="form-group">
+                    <label for="bookingBudget" class="form-label">Service Budget ($)</label>
+                    <input type="number" id="bookingBudget" class="form-control" step="100">
+                </div>
+                <div class="form-group">
+                    <label for="bookingWeddingType" class="form-label">Event Type</label>
+                    <select id="bookingWeddingType" class="form-control">
+                        <option value="Traditional">Traditional Ceremony</option>
+                        <option value="Destination">Destination Wedding</option>
+                        <option value="Royal">Royal Palace Wedding</option>
+                        <option value="Reception">Wedding Reception</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="specialRequirements" class="form-label">Special Directives</label>
+                    <textarea id="specialRequirements" class="form-control" rows="3" placeholder="e.g. Traditional dress theme, specific songs..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Confirm Reservation</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript Controllers -->
+    <script src="js/services.js"></script>
+</body>
+</html>

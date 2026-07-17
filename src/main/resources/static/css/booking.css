@@ -1,0 +1,100 @@
+/* booking.css - Booking and Budget Calculator specific styles */
+
+.booking-panel-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 3.5rem;
+    align-items: start;
+    margin-top: 3rem;
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 12px;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.status-pending {
+    background-color: #FEFCBF;
+    color: #B7791F;
+}
+
+.status-confirmed {
+    background-color: #C6F6D5;
+    color: #2F855A;
+}
+
+.status-cancelled {
+    background-color: #FED7D7;
+    color: #C53030;
+}
+
+/* Budget Calculator Card Styling */
+.budget-calculator-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-soft);
+}
+
+.budget-calculator-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.slider-group {
+    margin-bottom: 1.5rem;
+}
+
+.slider-label-wrapper {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--heading-color);
+    margin-bottom: 0.5rem;
+}
+
+.slider-control {
+    width: 100%;
+    accent-color: var(--button-bg);
+    cursor: pointer;
+}
+
+/* Calculator Totals output list */
+.budget-totals-list {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed var(--border-color);
+}
+
+.budget-total-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+    margin-bottom: 0.6rem;
+}
+
+.budget-total-row.grand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin-top: 1rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid var(--border-color);
+}
+
+@media (max-width: 991px) {
+    .booking-panel-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}

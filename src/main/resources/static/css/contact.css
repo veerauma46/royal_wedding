@@ -1,0 +1,24 @@
+/* contact.css - Contact Page specific styles */
+
+.contact-hero-banner {
+    height: 350px;
+    background: linear-gradient(rgba(90, 74, 74, 0.45), rgba(90, 74, 74, 0.25)), 
+                url('../images/wedding-banner.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.contact-hero-banner h1 {
+    color: #FFFFFF;
+    font-size: 3rem;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}
+
+.contact-layout-box {
+    margin-top: 1rem;
+    margin-bottom: 5rem;
+}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Register your wedding planner account to reserve venues and manage budgets.">
+    <title>Register - Royal Wedding Planner</title>
+    <!-- Fonts and Stylesheets -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/register.css">
+</head>
+<body>
+    <!-- Background Floral Overlay Decoration -->
+    <div class="floral-overlay"></div>
+
+    <!-- Loading Spinner Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="spinner"></div>
+        <div class="loading-text">Creating Your Account...</div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="register-container">
+        <div class="register-header">
+            <div class="register-logo" aria-hidden="true"></div>
+            <h1>Create Account</h1>
+            <p>Step into a world of bespoke, luxury wedding planning.</p>
+        </div>
+
+        <form id="registerForm" novalidate>
+            <div class="form-grid">
+                <!-- Full Name -->
+                <div class="form-group">
+                    <label for="fullName" class="form-label">Full Name *</label>
+                    <input type="text" id="fullName" class="form-control" placeholder="e.g. Uma Shankar" required>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email" class="form-label">Email Address *</label>
+                    <input type="email" id="email" class="form-control" placeholder="e.g. user@gmail.com" required>
+                </div>
+
+                <!-- Phone Number -->
+                <div class="form-group">
+                    <label for="phoneNumber" class="form-label">Phone Number *</label>
+                    <input type="tel" id="phoneNumber" class="form-control" placeholder="e.g. 9876543210" required>
+                </div>
+
+                <!-- Gender -->
+                <div class="form-group">
+                    <label class="form-label">Gender</label>
+                    <div class="gender-group">
+                        <label class="gender-option">
+                            <input type="radio" name="gender" value="Female" checked>
+                            <span>Female</span>
+                        </label>
+                        <label class="gender-option">
+                            <input type="radio" name="gender" value="Male">
+                            <span>Male</span>
+                        </label>
+                        <label class="gender-option">
+                            <input type="radio" name="gender" value="Other">
+                            <span>Other</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="password" class="form-label">Password *</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="password" class="form-control" placeholder="Min. 6 characters" required>
+                        <span id="passwordToggle" class="password-toggle-icon" title="Show password" role="button">&#128064;</span>
+                    </div>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="form-group">
+                    <label for="confirmPassword" class="form-label">Confirm Password *</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="confirmPassword" class="form-control" placeholder="Re-enter password" required>
+                        <span id="confirmPasswordToggle" class="password-toggle-icon" title="Show password" role="button">&#128064;</span>
+                    </div>
+                </div>
+
+                <!-- Password Strength Meter -->
+                <div class="form-group grid-col-full strength-container">
+                    <div class="strength-meter">
+                        <div id="strengthBar" class="strength-bar"></div>
+                    </div>
+                    <span id="strengthText" class="strength-text">Weak</span>
+                </div>
+
+                <!-- Header Break: Wedding Details (Luxury Theme Additions) -->
+                <div class="grid-col-full" style="border-top: 1px dashed var(--border-color); margin: 0.5rem 0; padding-top: 1rem;">
+                    <h3 style="font-size: 1.2rem; text-align: left; margin-bottom: 0.5rem;">Wedding Details <span style="font-family:'Poppins'; font-size:0.75rem; font-weight:normal; color:var(--text-color);">(Optional)</span></h3>
+                </div>
+
+                <!-- Bride Name -->
+                <div class="form-group">
+                    <label for="brideName" class="form-label">Bride's Name</label>
+                    <input type="text" id="brideName" class="form-control" placeholder="e.g. Mowlika">
+                </div>
+
+                <!-- Groom Name -->
+                <div class="form-group">
+                    <label for="groomName" class="form-label">Groom's Name</label>
+                    <input type="text" id="groomName" class="form-control" placeholder="e.g. Srikanth">
+                </div>
+
+                <!-- Wedding Date -->
+                <div class="form-group">
+                    <label for="weddingDate" class="form-label">Wedding Date</label>
+                    <input type="date" id="weddingDate" class="form-control" style="color: var(--text-color);">
+                </div>
+
+                <!-- Wedding Type -->
+                <div class="form-group">
+                    <label for="weddingType" class="form-label">Wedding Style</label>
+                    <select id="weddingType" class="form-control">
+                        <option value="Traditional">Traditional Ceremony</option>
+                        <option value="Destination">Destination Wedding</option>
+                        <option value="Royal">Royal Palace Wedding</option>
+                        <option value="Beach">Beachfront Pavilion</option>
+                        <option value="Minimal">Minimal Elegant Banquet</option>
+                    </select>
+                </div>
+
+                <!-- Budget -->
+                <div class="form-group">
+                    <label for="budget" class="form-label">Target Budget ($)</label>
+                    <input type="number" id="budget" class="form-control" placeholder="e.g. 15000">
+                </div>
+
+                <!-- City / Address -->
+                <div class="form-group">
+                    <label for="city" class="form-label">Address / City</label>
+                    <input type="text" id="city" class="form-control" placeholder="e.g. Hyderabad">
+                </div>
+            </div>
+
+            <!-- Terms Checklist -->
+            <div class="terms-container">
+                <label class="terms-label">
+                    <input type="checkbox" id="agreeTerms">
+                    <span>I understand and agree to the <a href="#" onclick="showNotification('Terms of Service are accepted by default for this college project.', 'info'); return false;">Terms of Service</a> & <a href="#" onclick="showNotification('Privacy Policy is active.', 'info'); return false;">Privacy Policy</a>.</span>
+                </label>
+            </div>
+
+            <!-- Register Button -->
+            <button type="submit" class="btn btn-primary btn-register">Register Account</button>
+        </form>
+
+        <!-- Back to Login Link -->
+        <div class="login-link-text">
+            <p>Already have an account? <a href="login.html">Login Here</a></p>
+        </div>
+    </div>
+
+    <!-- JavaScript Controller -->
+    <script src="js/register.js"></script>
+</body>
+</html>

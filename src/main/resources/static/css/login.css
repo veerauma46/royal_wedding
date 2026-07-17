@@ -1,0 +1,192 @@
+/* login.css - Login page styles */
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 1.5rem;
+}
+
+.login-container {
+    display: flex;
+    width: 1000px;
+    max-width: 100%;
+    min-height: 600px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+    animation: slideUp 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+/* Split screen: Left visual banner */
+.login-visual {
+    flex: 1;
+    background: #FFF9FB url('../images/couple.jpg') center/contain no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 3rem;
+    color: var(--heading-color);
+    position: relative;
+}
+
+.login-visual::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(255, 245, 247, 0.95) 0%, rgba(255, 245, 247, 0.4) 40%, rgba(255, 245, 247, 0) 100%);
+    z-index: 1;
+}
+
+.login-visual-content {
+    position: relative;
+    z-index: 2;
+}
+
+.login-visual-content h2 {
+    color: var(--heading-color);
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.login-visual-content p {
+    font-size: 1rem;
+    color: var(--text-color);
+    opacity: 0.95;
+}
+
+/* Right side: Login form card */
+.login-form-side {
+    flex: 1;
+    padding: 3.5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #FFF9FB;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.login-logo {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1rem;
+    background: url('../images/logo.jpg') center/contain no-repeat;
+}
+
+.login-header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.login-header p {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* Password field wrapper for eye icon */
+.password-wrapper {
+    position: relative;
+}
+
+.password-toggle-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--text-color);
+    opacity: 0.6;
+    transition: var(--transition);
+    font-size: 1.1rem;
+}
+
+.password-toggle-icon:hover {
+    opacity: 1;
+    color: var(--heading-color);
+}
+
+/* Checkbox and link settings */
+.form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    font-size: 0.85rem;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.remember-me input[type="checkbox"] {
+    accent-color: var(--button-bg);
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.forgot-link {
+    color: var(--heading-color);
+    font-weight: 500;
+}
+
+.forgot-link:hover {
+    text-decoration: underline;
+    color: var(--button-hover);
+}
+
+.btn-login {
+    width: 100%;
+    padding: 0.95rem;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 1.5rem;
+}
+
+.register-link-text {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.register-link-text a {
+    font-weight: 600;
+    color: var(--heading-color);
+}
+
+.register-link-text a:hover {
+    text-decoration: underline;
+    color: var(--button-hover);
+}
+
+/* Responsive adjustment */
+@media (max-width: 800px) {
+    .login-container {
+        flex-direction: column;
+        width: 450px;
+        min-height: auto;
+    }
+    .login-visual {
+        display: none;
+    }
+    .login-form-side {
+        padding: 3rem 2rem;
+    }
+}

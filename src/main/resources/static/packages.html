@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore and compare our luxury wedding packages: Silver, Gold, Platinum, and Royal plans.">
+    <title>Wedding Packages - Royal Wedding Planner</title>
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/packages.css">
+</head>
+<body>
+    <!-- Background Floral Overlay -->
+    <div class="floral-overlay"></div>
+
+    <!-- Loading Spinner Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="spinner"></div>
+        <div class="loading-text">Loading Packages...</div>
+    </div>
+
+    <!-- ============ HEADER & NAVBAR ============ -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-img" aria-hidden="true"></div>
+                <div class="logo-text">Royal Wedding<span>Bespoke Elegance</span></div>
+            </a>
+            
+            <button id="menuToggle" class="menu-toggle" aria-label="Toggle Navigation Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav id="navbar">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="packages.html" class="active">Packages</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="booking.html">Reservations</a></li>
+                    <li><a href="profile.html" id="navProfileLink" style="display: none;">My Profile</a></li>
+                    <li><a href="#" id="navLogoutLink" style="display: none;">Logout</a></li>
+                </ul>
+                <div id="authButtons" class="nav-buttons">
+                    <a href="login.html" class="btn btn-outline nav-btn">Login</a>
+                    <a href="register.html" class="btn btn-primary nav-btn">Register</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ============ PACKAGES LIST SECTION ============ -->
+    <section id="packages" style="margin-top: 5rem;">
+        <div class="section-header">
+            <span class="section-subtitle">Luxury Collections</span>
+            <h2 class="section-title">Our Wedding Packages</h2>
+        </div>
+
+        <div id="packagesGrid" class="packages-grid">
+            <!-- Rendered dynamically by js/packages.js -->
+            <div style="text-align: center; grid-column: 1/-1; padding: 2rem;">
+                <div class="spinner" style="margin: 0 auto 1rem;"></div>
+                <p>Loading premium packages...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ COMPARISON TABLE SECTION ============ -->
+    <section class="comparison-section">
+        <div class="section-header">
+            <span class="section-subtitle">Feature Breakdown</span>
+            <h2 class="section-title">Compare Packages</h2>
+        </div>
+
+        <div class="comparison-table-wrapper">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Package Feature</th>
+                        <th>Silver</th>
+                        <th>Gold</th>
+                        <th>Platinum</th>
+                        <th>Royal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Base Price</td>
+                        <td>$5,000</td>
+                        <td>$10,000</td>
+                        <td>$15,000</td>
+                        <td>$25,000</td>
+                    </tr>
+                    <tr>
+                        <td>Coordination</td>
+                        <td>On-Day Support</td>
+                        <td>Month-Before</td>
+                        <td>Full Planning</td>
+                        <td>Palace Coordination</td>
+                    </tr>
+                    <tr>
+                        <td>Florals & Decor</td>
+                        <td>Essential</td>
+                        <td>Custom Theme</td>
+                        <td>Premium Styling</td>
+                        <td>Royal Palace Decor</td>
+                    </tr>
+                    <tr>
+                        <td>Catering Buffet</td>
+                        <td>Standard (2 Main)</td>
+                        <td>Custom (4 Main)</td>
+                        <td>Gourmet Cuisine</td>
+                        <td>Celebrity Chefs</td>
+                    </tr>
+                    <tr>
+                        <td>Photography</td>
+                        <td>4 Hours Digital</td>
+                        <td>Full Day Candid</td>
+                        <td>Cinematic Video</td>
+                        <td>Elite Multi-Team Drone</td>
+                    </tr>
+                    <tr>
+                        <td>Entertainment</td>
+                        <td>Sound System</td>
+                        <td>Acoustic Artist</td>
+                        <td>Live Wedding Band</td>
+                        <td>International DJ</td>
+                    </tr>
+                    <tr>
+                        <td>Wedding Cake</td>
+                        <td>1-Tier Standard</td>
+                        <td>2-Tier Custom</td>
+                        <td>3-Tier Designer</td>
+                        <td>5-Tier Royal Structure</td>
+                    </tr>
+                    <tr>
+                        <td>Guest Capacity</td>
+                        <td>Up to 150 guests</td>
+                        <td>Up to 300 guests</td>
+                        <td>Up to 500 guests</td>
+                        <td>Unlimited Hospitality</td>
+                    </tr>
+                    <tr>
+                        <td>Action</td>
+                        <td><button class="btn btn-outline btn-small" onclick="openBooking('package', 1, 'Silver Package', 5000.0)">Select Silver</button></td>
+                        <td><button class="btn btn-primary btn-small" onclick="openBooking('package', 2, 'Gold Package', 10000.0)">Select Gold</button></td>
+                        <td><button class="btn btn-outline btn-small" onclick="openBooking('package', 3, 'Platinum Package', 15000.0)">Select Platinum</button></td>
+                        <td><button class="btn btn-outline btn-small" onclick="openBooking('package', 4, 'Royal Package', 25000.0)">Select Royal</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <a href="index.html" class="logo">
+                    <div class="logo-img" aria-hidden="true"></div>
+                    <div class="logo-text">Royal Wedding<span>Bespoke Elegance</span></div>
+                </a>
+                <p>Curating award-winning luxury wedding celebrations with precision, premium services, and detailed timeline management.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Wedding Services</h4>
+                <ul class="footer-links">
+                    <li><a href="services.html">Palace Booking</a></li>
+                    <li><a href="services.html">Custom Catering</a></li>
+                    <li><a href="services.html">Flora Decorators</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal & Support</h4>
+                <ul class="footer-links">
+                    <li><a href="#" onclick="showNotification('Support Desk: concierge@royalwedding.com', 'info'); return false;">Help Center</a></li>
+                    <li><a href="#" onclick="showNotification('Terms of Service are active.', 'info'); return false;">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Royal Wedding Planner. All Rights Reserved. Designed with Love for a Luxury College Project Showcase.</p>
+        </div>
+    </footer>
+
+    <!-- Booking Modal Form -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('bookingModal')">&times;</span>
+            <div class="modal-header">
+                <h3 id="bookingItemTitle">Book Package</h3>
+                <p>Fill in details to lock your dates and confirm reservations.</p>
+            </div>
+            
+            <form id="bookingForm" novalidate>
+                <input type="hidden" id="bookingType">
+                <input type="hidden" id="bookingItemId" name="serviceId">
+                <input type="hidden" id="packageNameInput">
+
+                <div class="form-group">
+                    <label for="bookingDate" class="form-label">Wedding Date *</label>
+                    <input type="date" id="bookingDate" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="bookingGuests" class="form-label">Number of Guests</label>
+                    <input type="number" id="bookingGuests" class="form-control" value="100" min="10">
+                </div>
+                <div class="form-group">
+                    <label for="bookingBudget" class="form-label">Allocated Budget ($)</label>
+                    <input type="number" id="bookingBudget" class="form-control" step="100">
+                </div>
+                <div class="form-group">
+                    <label for="bookingWeddingType" class="form-label">Wedding Style</label>
+                    <select id="bookingWeddingType" class="form-control">
+                        <option value="Traditional">Traditional Ceremony</option>
+                        <option value="Destination">Destination Wedding</option>
+                        <option value="Royal">Royal Palace Wedding</option>
+                        <option value="Beach">Beachfront Pavilion</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="specialRequirements" class="form-label">Special Requirements</label>
+                    <textarea id="specialRequirements" class="form-control" rows="3" placeholder="e.g. Vegetarian buffet, custom flowers..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Confirm Reservation</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript Controllers -->
+    <script src="js/packages.js"></script>
+</body>
+</html>

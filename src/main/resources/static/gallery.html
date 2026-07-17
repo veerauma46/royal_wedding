@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View our portfolio of Hindu, Christian, Muslim, and Reception wedding decorations.">
+    <title>Inspiration Gallery - Royal Wedding Planner</title>
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/gallery.css">
+</head>
+<body>
+    <!-- Background Floral Overlay -->
+    <div class="floral-overlay"></div>
+
+    <!-- Loading Spinner Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="spinner"></div>
+        <div class="loading-text">Loading Gallery...</div>
+    </div>
+
+    <!-- ============ HEADER & NAVBAR ============ -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-img" aria-hidden="true"></div>
+                <div class="logo-text">Royal Wedding<span>Bespoke Elegance</span></div>
+            </a>
+            
+            <button id="menuToggle" class="menu-toggle" aria-label="Toggle Navigation Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav id="navbar">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="gallery.html" class="active">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="booking.html">Reservations</a></li>
+                    <li><a href="profile.html" id="navProfileLink" style="display: none;">My Profile</a></li>
+                    <li><a href="#" id="navLogoutLink" style="display: none;">Logout</a></li>
+                </ul>
+                <div id="authButtons" class="nav-buttons">
+                    <a href="login.html" class="btn btn-outline nav-btn">Login</a>
+                    <a href="register.html" class="btn btn-primary nav-btn">Register</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ============ GALLERY DISPLAY SECTION ============ -->
+    <section id="gallery" style="margin-top: 5rem;">
+        <div class="section-header">
+            <span class="section-subtitle">Real Weddings</span>
+            <h2 class="section-title">The Inspiration Gallery</h2>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="gallery-filters">
+            <button class="filter-btn active" data-filter="all">All Photos</button>
+            <button class="filter-btn" data-filter="hindu">Hindu Wedding</button>
+            <button class="filter-btn" data-filter="christian">Christian Wedding</button>
+            <button class="filter-btn" data-filter="muslim">Muslim Wedding</button>
+            <button class="filter-btn" data-filter="reception">Receptions</button>
+            <button class="filter-btn" data-filter="decoration">Decorations</button>
+            <button class="filter-btn" data-filter="photography">Photography</button>
+        </div>
+
+        <!-- Image Grid -->
+        <div id="galleryGrid" class="gallery-grid">
+            <!-- Rendered dynamically by js/gallery.js -->
+        </div>
+    </section>
+
+    <!-- ============ CUSTOM LIGHTBOX MODAL ============ -->
+    <div id="lightboxModal" class="lightbox-modal">
+        <div class="lightbox-content-wrapper">
+            <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+            <button class="lightbox-nav lightbox-prev" onclick="changeLightboxImage(-1)">&lt;</button>
+            <img id="lightboxImg" class="lightbox-img" src="" alt="">
+            <button class="lightbox-nav lightbox-next" onclick="changeLightboxImage(1)">&gt;</button>
+        </div>
+        <div id="lightboxCaption" class="lightbox-caption"></div>
+    </div>
+
+    <!-- ============ FOOTER ============ -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <a href="index.html" class="logo">
+                    <div class="logo-img" aria-hidden="true"></div>
+                    <div class="logo-text">Royal Wedding<span>Bespoke Elegance</span></div>
+                </a>
+                <p>Curating award-winning luxury wedding celebrations with precision, premium services, and detailed timeline management.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Wedding Services</h4>
+                <ul class="footer-links">
+                    <li><a href="services.html">Palace Booking</a></li>
+                    <li><a href="services.html">Custom Catering</a></li>
+                    <li><a href="services.html">Flora Decorators</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal & Support</h4>
+                <ul class="footer-links">
+                    <li><a href="#" onclick="showNotification('Support Desk: concierge@royalwedding.com', 'info'); return false;">Help Center</a></li>
+                    <li><a href="#" onclick="showNotification('Terms of Service are active.', 'info'); return false;">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Royal Wedding Planner. All Rights Reserved. Designed with Love for a Luxury College Project Showcase.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Controllers -->
+    <script src="js/gallery.js"></script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View and customize your account profile, wedding settings, names, and budget targets.">
+    <title>My Profile - Royal Wedding Planner</title>
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+    <!-- Background Floral Overlay -->
+    <div class="floral-overlay"></div>
+
+    <!-- Loading Spinner Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="spinner"></div>
+        <div class="loading-text">Saving Changes...</div>
+    </div>
+
+    <!-- ============ HEADER & NAVBAR ============ -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-img" aria-hidden="true"></div>
+                <div class="logo-text">Royal Wedding<span>Bespoke Elegance</span></div>
+            </a>
+            
+            <button id="menuToggle" class="menu-toggle" aria-label="Toggle Navigation Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav id="navbar">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="booking.html">Reservations</a></li>
+                    <li><a href="profile.html" class="active">My Profile</a></li>
+                    <li><a href="#" id="navLogoutLink" style="display: none;">Logout</a></li>
+                </ul>
+                <div id="authButtons" class="nav-buttons">
+                    <a href="login.html" class="btn btn-outline nav-btn">Login</a>
+                    <a href="register.html" class="btn btn-primary nav-btn">Register</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ============ PROFILE FORM SECTION ============ -->
+    <section style="margin-top: 5rem;">
+        <div class="profile-container">
+            <div class="profile-avatar-header">
+                <div class="profile-icon-avatar" aria-hidden="true">👑</div>
+                <div class="profile-header-meta">
+                    <h1 id="headerFullName">Guest User</h1>
+                    <p id="headerEmail">user@royalwedding.com</p>
+                </div>
+            </div>
+
+            <form id="profileForm" novalidate>
+                <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-bottom: 2rem;">
+                    <!-- Full Name -->
+                    <div class="form-group">
+                        <label for="profFullName" class="form-label">Full Name *</label>
+                        <input type="text" id="profFullName" class="form-control" required>
+                    </div>
+
+                    <!-- Email Address (read only) -->
+                    <div class="form-group">
+                        <label for="profEmail" class="form-label">Email Address</label>
+                        <input type="email" id="profEmail" class="form-control" readonly style="background-color: var(--secondary); opacity: 0.8;">
+                    </div>
+
+                    <!-- Phone Number -->
+                    <div class="form-group">
+                        <label for="profPhone" class="form-label">Phone Number</label>
+                        <input type="tel" id="profPhone" class="form-control">
+                    </div>
+
+                    <!-- Password change -->
+                    <div class="form-group">
+                        <label for="profPassword" class="form-label">Change Password</label>
+                        <input type="password" id="profPassword" class="form-control" placeholder="Leave blank to keep same">
+                    </div>
+
+                    <!-- Bride Name -->
+                    <div class="form-group">
+                        <label for="profBrideName" class="form-label">Bride's Name</label>
+                        <input type="text" id="profBrideName" class="form-control">
+                    </div>
+
+                    <!-- Groom Name -->
+                    <div class="form-group">
+                        <label for="profGroomName" class="form-label">Groom's Name</label>
+                        <input type="text" id="profGroomName" class="form-control">
+                    </div>
+
+                    <!-- Wedding Date -->
+                    <div class="form-group">
+                        <label for="profWeddingDate" class="form-label">Wedding Date</label>
+                        <input type="date" id="profWeddingDate" class="form-control" style="color: var(--text-color);">
+                    </div>
+
+                    <!-- Wedding Type -->
+                    <div class="form-group">
+                        <label for="profWeddingType" class="form-label">Wedding Style</label>
+                        <select id="profWeddingType" class="form-control">
+                            <option value="Traditional">Traditional Ceremony</option>
+                            <option value="Destination">Destination Wedding</option>
+                            <option value="Royal">Royal Palace Wedding</option>
+                            <option value="Beach">Beachfront Pavilion</option>
+                            <option value="Minimal">Minimal Elegant Banquet</option>
+                        </select>
+                    </div>
+
+                    <!-- Target Budget -->
+                    <div class="form-group">
+                        <label for="profBudget" class="form-label">Target Budget ($)</label>
+                        <input type="number" id="profBudget" class="form-control">
+                    </div>
+
+                    <!-- Address / City -->
+                    <div class="form-group">
+                        <label for="profAddress" class="form-label">City / Address</label>
+                        <input type="text" id="profAddress" class="form-control">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Save Profile Changes</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <a href="index.html" class="logo">
+                    <div class="logo-img" aria-hidden="true"></div>
+                    <div class="logo-text">Royal Wedding<span>Bespoke Elegance</span></div>
+                </a>
+                <p>Curating award-winning luxury wedding celebrations with precision, premium services, and detailed timeline management.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Wedding Services</h4>
+                <ul class="footer-links">
+                    <li><a href="services.html">Palace Booking</a></li>
+                    <li><a href="services.html">Custom Catering</a></li>
+                    <li><a href="services.html">Flora Decorators</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal & Support</h4>
+                <ul class="footer-links">
+                    <li><a href="#" onclick="showNotification('Support Desk: concierge@royalwedding.com', 'info'); return false;">Help Center</a></li>
+                    <li><a href="#" onclick="showNotification('Terms of Service are active.', 'info'); return false;">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Royal Wedding Planner. All Rights Reserved. Designed with Love for a Luxury College Project Showcase.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Controllers -->
+    <script src="js/profile.js"></script>
+</body>
+</html>

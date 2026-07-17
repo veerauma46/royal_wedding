@@ -1,0 +1,32 @@
+/* services.css - Services and Vendors Page specific styles */
+
+.search-filter-container {
+    max-width: 800px;
+    margin: 2rem auto 4rem;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.search-box {
+    flex: 1;
+    min-width: 280px;
+    position: relative;
+}
+
+.search-box input {
+    padding-left: 2.8rem;
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.5;
+}
+
+.category-select {
+    width: 200px;
+}
